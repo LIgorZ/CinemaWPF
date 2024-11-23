@@ -1,0 +1,45 @@
+﻿<Window x:Class="CinemaWPF.WUpdatePerson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaWPF"
+        mc:Ignorable="d"
+        Title="Получение информации о персонах" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"       
+        >
+    <Grid>
+        <Button x:Name="bOK" Content="ОК" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="70" Width="190" 
+                 Margin="10" Click="bOK_Click"/>
+        <Button x:Name="bCancel" Content="Отменить" HorizontalAlignment="Right" Margin="10,10,250,10" VerticalAlignment="Bottom" Height="70" Width="200" Click="bCancel_Click"/>
+        <Image x:Name="IPhotoActor" HorizontalAlignment="Left" Height="410" 
+               Margin="20,24,0,0" VerticalAlignment="Top" Width="290"
+               Source="{Binding Photo}"/>
+        <TextBlock Width="400" Height="500" Margin="0,24,425,0" TextWrapping="Wrap"
+           VerticalAlignment="Top" HorizontalAlignment="Right"
+           >
+                <Run Text="Имя: "/>
+                <Run Text="{Binding Name}"/>
+                <LineBreak/>
+                <Run Text="{Binding EnName}"/>
+                <LineBreak/>
+                <LineBreak/>
+                <Run Text="Факты: "/>
+                <LineBreak/>
+                <Run Text="{Binding Fact}"/>
+                <LineBreak/>
+        </TextBlock>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Width="400" Height="500"
+                      VerticalAlignment="Top" HorizontalAlignment="Right" 
+                      HorizontalScrollBarVisibility="Hidden" Margin="10">
+            <TextBlock  TextWrapping="Wrap"
+           
+           >
+           <Run Text="Фильмография: "/>
+            <LineBreak/>
+            <Run Text="{Binding Films}"/>
+        </TextBlock>
+        </ScrollViewer>
+
+    </Grid>
+</Window>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="CinemaWPF.WStart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaWPF"
+        mc:Ignorable="d"
+        Title="WStart" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Grid.ColumnSpan="2" Margin="114,0,0,0">
+            <TextBlock>
+                <Run Text="Подождите, идет загрузка данных!" FontSize="36"/>
+            </TextBlock>
+            <ProgressBar Name="r" Height="30" Width="500" Margin="50" IsIndeterminate="True">
+                
+            </ProgressBar>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,69 @@
+﻿<Window x:Class="CinemaWPF.WSetGenre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaWPF"
+        mc:Ignorable="d"
+        Title="Жанры" Height="750" Width="400" WindowStartupLocation="CenterScreen"
+         >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <WrapPanel VerticalAlignment="Bottom"
+                   HorizontalAlignment="Right" 
+                   Grid.Column="0" Grid.Row="2"
+                   Margin="10">
+            <Button x:Name="bCancel" Content="Отмена" Margin="10" 
+                    Height="50" Width="100" Click="bCancel_Click"/> 
+            <Button x:Name="bOK" Content="OK" Margin="10" 
+                    Width="100" Height="50" Click="bOK_Click"/>
+           
+        </WrapPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      Grid.Row="1" Grid.Column="0">
+        <StackPanel  Name="ShowGenre" 
+                    >
+            <ListBox Name="lBoxGenre" Margin="10" Height="450">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <CheckBox Content="{Binding Name}" IsChecked="{Binding isChecked}">
+                            </CheckBox>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBlock Text="---" Name="sInfo" Margin="10"/>
+        </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Column="0" Grid.Row="0" Name="SpInfoFilm" 
+                    Orientation="Horizontal" Margin="10">
+            <TextBlock>
+                <Run Text="Название фильма: " FontWeight="Bold"/>
+                <Run Text="{Binding Name}"/>
+                <LineBreak/>
+                <Run Text="{Binding AlternativeName}"/>
+                <LineBreak/>
+                <Run Text="{Binding PathToFilm}"/>
+            </TextBlock>
+        </StackPanel>
+            
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal"
+                    VerticalAlignment="Top" Margin ="5">
+            <TextBlock Text="Добавить жанр" Width="auto" Height="20" Margin="5"/>
+            <TextBox x:Name="tBoxInputGenre" Text="" Width="150" Height="20"/>
+            <Button x:Name="bAddGenre" Content="Добавить жанр" 
+                    Width="120" Height="50"
+                    Margin="10" Click="bAddGenre_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

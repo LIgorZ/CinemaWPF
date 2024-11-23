@@ -1,0 +1,67 @@
+﻿<Window x:Class="CinemaWPF.WEditFilm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaWPF"
+        mc:Ignorable="d"
+        Title="Редактировать информацию о фильме" Height="650" Width="1000"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="bCancel" Click="bCancel_Click" 
+        Content="Отменить" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+        Height="100" Width="200" Margin="0,0,220,10"></Button>
+        <Button x:Name="bOK" 
+        Content="OK" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+        Height="100" Width="200" Margin="0,0,10,10" Click="bOK_Click"/>
+        <Button x:Name="bGetIdKPbyNameFilm" Content="Id Кинопоиска по названию фильма"
+        Height="100" Width="250" Margin="10"
+        HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="bGetIdKPbyNameFilm_Click">
+        </Button>
+        <Button x:Name="bGetInfoFilmbyIdKP" Content="Полная информация о фильме"
+        Height="100" Width="250" Margin="275,0,0,10"
+        HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="bGetInfoFilmbyIdKP_Click">
+        </Button>
+
+        <TextBlock x:Name="lNumofFilm" Width="200" Height="24" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top">
+            ------------------
+        </TextBlock>
+
+        <Image x:Name="IPoster" Source="{Binding Poster}" Width="277" Height="405" Margin="23,29,0,0"
+               Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top"
+            ></Image>
+        <TextBlock Margin="332,30,0,0" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top">
+            <Run Text="Название: " FontWeight="Bold"></Run>
+        </TextBlock>
+        <TextBox x:Name="tBNameFilm" Text="{Binding Name}" Height="auto" Margin="465,25,45,565"/>
+        <TextBlock HorizontalAlignment="Left" Margin="332,82,0,0" VerticalAlignment="Top">
+            <Run Text="ID Кинопоиска: " FontWeight="Bold"></Run>
+            <Run Text="{ Binding IdKP}"></Run>
+        </TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="332,103,0,0" VerticalAlignment="Top">
+            <Run Text="ID фильма: " FontWeight="Bold"></Run>
+            <Run Text="{ Binding Id}"></Run>
+            <LineBreak/>
+            <Run Text="Путь: " FontWeight="Bold"/>
+            <Run Text="{Binding PathToFilm}"/>
+        </TextBlock>
+        <TextBlock Margin="332,140,158,145" TextWrapping="Wrap">
+            <Run Text="Год: " FontWeight="Bold"/>
+            <Run Text="{Binding Year}"/>
+            <LineBreak/>
+            <Run Text="В ролях: " FontWeight="Bold"/>
+            <Run Text="{Binding Actors}"/>
+            <LineBreak/>
+            <Run Text="Жанры: " FontWeight="Bold"/>
+            <Run Text="{Binding Genres}"/>
+            <LineBreak/>
+            <LineBreak/>
+            <Run Text="Описание:" FontWeight="Bold"/>
+            <LineBreak/>
+            <Run Text="{Binding Description}"/>
+        </TextBlock>
+
+
+    </Grid>
+</Window>
